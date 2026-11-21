@@ -156,4 +156,4 @@ Third-party packages and assets may be subject to their own licenses; refer to t
 
 - **Repository:** [Khaiyen-Salaria/Amiyen](https://github.com/Khaiyen-Salaria/Amiyen)
 - **Releases:** [Amiyen releases](https://github.com/Khaiyen-Salaria/Amiyen/releases)
-- **Status:** Beta
+- **Status:** v1.0.0_Beta Pre-Released
