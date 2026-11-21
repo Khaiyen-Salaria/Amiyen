@@ -146,7 +146,11 @@ Bug reports, ideas, and pull requests are welcome. For substantial changes, open
 
 ## License
 
-This README does not assign a license. Add the project's selected license as a `LICENSE` file and replace this section with the license name and a link before inviting reuse or redistribution. If no license file is present, users should not assume permission to copy, modify, or redistribute the code.
+Amiyen is licensed under the **MIT License**. Copyright (c) 2026 Khaiyen Salaria.
+
+The MIT License permits use, copying, modification, distribution, sublicensing, and sale of copies, provided the copyright and permission notice are included with copies or substantial portions of the software. See the [`LICENSE`](LICENSE) file for the full license terms.
+
+Third-party packages and assets may be subject to their own licenses; refer to their respective license and attribution notices.
 
 ## Project
 
