@@ -2,7 +2,7 @@
 
 **Business mathematics and financial calculators in one Flask web application.**
 
-[![Project status: Beta](https://img.shields.io/badge/status-beta-orange)](https://github.com/Khaiyen-Salaria/Amiyen/releases)
+[![Project status: Beta](https://img.shields.io/badge/Status-v1.0.0_Beta-orange)](https://github.com/Khaiyen-Salaria/Amiyen/releases)
 [![Built with Python](https://img.shields.io/badge/Python-Flask-blue)](https://flask.palletsprojects.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
