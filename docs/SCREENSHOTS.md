@@ -1,0 +1,28 @@
+# Screenshot assets
+
+24 unique screenshots were extracted from the supplied ZIP. The ZIP included one duplicate screenshot of Ratios and Proportions; only one copy is included.
+
+- `docs/screenshots/basic-business-math.png` — Basic Business Math (1872 × 991)
+- `docs/screenshots/markup-and-markdown.png` — Markup and Markdown (1872 × 991)
+- `docs/screenshots/discounts.png` — Discounts (1872 × 991)
+- `docs/screenshots/profit-and-loss.png` — Profit and Loss (1872 × 991)
+- `docs/screenshots/simple-interest.png` — Simple Interest (1872 × 991)
+- `docs/screenshots/compound-interest.png` — Compound Interest (1872 × 991)
+- `docs/screenshots/annuities.png` — Annuities (1872 × 991)
+- `docs/screenshots/loans.png` — Loans (1872 × 991)
+- `docs/screenshots/present-and-future-value.png` — Present and Future Value (1872 × 991)
+- `docs/screenshots/depreciation.png` — Depreciation (1872 × 991)
+- `docs/screenshots/commission.png` — Commission (1872 × 991)
+- `docs/screenshots/payroll-and-wages.png` — Payroll and Wages (1872 × 991)
+- `docs/screenshots/taxes.png` — Taxes (1872 × 991)
+- `docs/screenshots/break-even-analysis.png` — Break-Even Analysis (1872 × 991)
+- `docs/screenshots/business-revenue-and-cost.png` — Business Revenue and Cost (1872 × 991)
+- `docs/screenshots/ratios-and-proportions.png` — Ratios and Proportions (1872 × 991)
+- `docs/screenshots/statistics.png` — Statistics (1872 × 991)
+- `docs/screenshots/probability.png` — Probability (1872 × 991)
+- `docs/screenshots/percentage-and-rate-conversions.png` — Percentage and Rate Conversions (1872 × 991)
+- `docs/screenshots/financial-ratios.png` — Financial Ratios (1872 × 991)
+- `docs/screenshots/capital-budgeting.png` — Capital Budgeting (1872 × 991)
+- `docs/screenshots/stocks-and-bonds.png` — Stocks and Bonds (1872 × 991)
+- `docs/screenshots/insurance.png` — Insurance (1872 × 991)
+- `docs/screenshots/promissory-notes.png` — Promissory Notes (1872 × 991)

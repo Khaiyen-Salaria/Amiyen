@@ -1,222 +1,154 @@
-# Amiyen Business Math Calculator
+# Amiyen
 
-Amiyen is a browser-based business math calculator built with Python, Flask, and SQLite. It provides 24 calculator modules for pricing, finance, payroll, statistics, and other business calculations. Enter values in a form, calculate results, and revisit saved calculations through dashboards or CSV exports.
+**Business mathematics and financial calculators in one Flask web application.**
 
-## Contents
+[![Project status: Beta](https://img.shields.io/badge/status-beta-orange)](https://github.com/Khaiyen-Salaria/Amiyen/releases)
+[![Built with Python](https://img.shields.io/badge/Python-Flask-blue)](https://flask.palletsprojects.com/)
 
-- [Features](#features)
-- [Calculator modules](#calculator-modules)
-- [Step-by-step setup](#step-by-step-setup)
-- [Using the calculator](#using-the-calculator)
-- [Input conventions](#input-conventions)
-- [Calculation history and database](#calculation-history-and-database)
-- [Running tests](#running-tests)
-- [Project structure](#project-structure)
-- [Troubleshooting](#troubleshooting)
+Amiyen brings practical business, finance, and quantitative calculations into one place. Instead of switching between separate tools or spreadsheets, users can choose a calculator, enter their values, and review the calculated results and visual summaries.
 
-## Features
+> **Beta notice:** Amiyen is still under active development. Results and workflows may change between releases. Verify important calculations independently before using them for business, accounting, tax, investment, or lending decisions.
 
-- **24 calculators:** solve common business math problems through separate forms.
-- **Saved history:** inputs and calculated results are stored in a local SQLite database.
-- **Overview dashboard:** `/dashboard` summarizes records, module usage, and recent activity across all calculators.
-- **Calculator dashboards:** each calculator shows latest-value cards, a history trend, and calculation activity.
-- **CSV export:** download a calculator's saved history with its **Export CSV** button.
-- **Local charts:** charts use the browser Canvas API without an external chart service or CDN.
-- **Automatic database setup:** startup creates missing tables and adds missing columns. No separate database server or manual schema import is required.
+## Preview
 
-## Calculator modules
+![Amiyen – Basic Business Math calculator](docs/screenshots/basic-business-math.png)
 
-| Module | What it calculates |
-| --- | --- |
-| Basic Business Math | Percentage, rate, base, and percentage changes |
-| Markup and Markdown | Markup, markdown, selling price, cost, and related rates |
-| Discounts | Trade discounts, net price, and successive discounts |
-| Profit and Loss | Profit, loss, margin, and target selling price |
-| Simple Interest | Interest and maturity value |
-| Compound Interest | Compound amount, interest, present value, and effective annual rate |
-| Annuities | Present and future values of ordinary annuities and annuities due |
-| Loans | Periodic payments, total interest, and outstanding balance |
-| Present and Future Value | Time value of money using simple and compound interest |
-| Depreciation | Straight-line and declining-balance depreciation and book value |
-| Commission | Commission, commission rate, sales, and total earnings |
-| Payroll and Wages | Regular pay, overtime pay, deductions, and net pay |
-| Taxes | Taxable income, tax, and net income using an entered tax rate |
-| Break-Even Analysis | Contribution margin, break-even units and sales, and profit |
-| Business Revenue and Cost | Revenue, fixed and variable costs, profit, and per-unit averages |
-| Ratios and Proportions | Ratios, proportions, unit rates, and direct or inverse variation |
-| Statistics | Mean, weighted mean, median, mode, range, variance, and standard deviation |
-| Probability | Basic probability, complement, addition, multiplication, and conditional probability |
-| Percentage and Rate Conversions | Decimal and percentage conversions and periodic rates |
-| Financial Ratios | Liquidity, profitability, return, and debt-to-equity ratios |
-| Capital Budgeting | Net present value, internal rate of return, and payback period |
-| Stocks and Bonds | Dividend yield and current bond yield |
-| Insurance | Insurance premiums and short-rate premiums |
-| Promissory Notes | Maturity value, bank discount, and proceeds |
+*The application includes a dashboard-style interface with calculation summaries and visual charts.*
 
-## Step-by-step setup
+## Why Amiyen
 
-### 1. Install prerequisites
+- **24 focused calculators** for day-to-day business mathematics, finance, and quantitative analysis.
+- **Results at a glance** with summary values and visual charts where supported by the calculator.
+- **Calculation history** so users can revisit previous work.
+- **CSV export** for taking calculation data into spreadsheet workflows.
+- **Local SQLite storage** without requiring a separate database server for a local setup.
 
-Install **Python 3 with pip and virtual environment support**, plus **Git** if you will clone the repository. Python **3.12** is verified with this project. You also need a web browser.
+## Calculators
 
-Check your Python installation:
+| Business and operations | Finance and planning | Mathematics and analysis |
+|---|---|---|
+| Basic Business Math | Simple Interest | Ratios and Proportions |
+| Markup and Markdown | Compound Interest | Statistics |
+| Discounts | Annuities | Probability |
+| Profit and Loss | Loans | Percentage and Rate Conversions |
+| Business Revenue and Cost | Present and Future Value | Financial Ratios |
+| Break-Even Analysis | Depreciation | |
+| Commission | Capital Budgeting | |
+| Payroll and Wages | Stocks and Bonds | |
+| Taxes | Insurance | |
+| | Promissory Notes | |
+
+## Installation
+
+### Prerequisites
+
+- Python 3 (Python 3.10 or newer is recommended).
+- Git.
+- `pip`, which is included with most Python installations.
+
+### 1. Clone the repository
 
 ```bash
-python --version
-python -m pip --version
-```
-
-On macOS or Linux, use `python3` instead of `python` if that is the command for your Python 3 installation.
-
-### 2. Download the repository
-
-```bash
-git clone https://github.com/khaiyenIsCanadianHam/Amiyen.git
+git clone https://github.com/Khaiyen-Salaria/Amiyen.git
 cd Amiyen
 ```
 
-If you downloaded a ZIP instead, extract it and open a terminal in the extracted repository folder. If the repository is already checked out in your cloud environment, use that checkout.
+### 2. Create a virtual environment
 
-### 3. Create and activate a virtual environment
+Choose the commands for your operating system.
 
-Create it from the repository root:
-
-```bash
-python -m venv .venv
-```
-
-Activate it on **Windows PowerShell**:
+**Windows — PowerShell**
 
 ```powershell
+py -3 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-Or on **Windows Command Prompt**:
+If PowerShell blocks activation, you can use Command Prompt instead:
 
 ```bat
 .venv\Scripts\activate.bat
 ```
 
-Or on **macOS / Linux**:
+**Linux and macOS**
 
 ```bash
+python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-### 4. Install the application dependency
+### 3. Install dependencies
 
-With the virtual environment active:
+Run this command with the virtual environment activated:
 
 ```bash
-python -m pip install "Flask==3.1.3"
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 ```
 
-**Why not use `pip install -r requirements.txt`?** The current file includes `sqlite3`, `statistics`, and `pathlib`, which are part of Python's standard library. In particular, `sqlite3` cannot be installed that way. The current application imports Flask as its only third-party dependency; `numpy_financial`, also listed in that file, is not used by the current code. The command above installs the verified Flask version without changing the dependency file.
-
-### 5. Start the application
-
-From the repository root:
+### 4. Start Amiyen
 
 ```bash
-cd app
 python app.py
 ```
 
-The entry point is **`app/app.py`**, not a file at the repository root. Startup initializes the SQLite database automatically and prints the server address.
-
-For local development, open the printed address in your browser; by default it is `http://127.0.0.1:5000`. The home page opens Basic Business Math. The overview is at `/dashboard`.
-
-`python app.py` enables Flask debug mode. Use it for development only. Stop the server with **Ctrl+C**.
-
-### 6. Start it again later
-
-Open a terminal in the repository root, activate the virtual environment using the command for your operating system, then run:
-
-```bash
-cd app
-python app.py
-```
-
-Dependencies and database records remain on disk between runs; the server process must be started again.
-
-## Using the calculator
-
-1. Choose a calculator from the navigation menu.
-2. Enter the values requested by its form, following the conventions below.
-3. Select **Calculate**. A successful calculation saves a history record and reloads the calculator page.
-4. Review its latest values, trend, and activity dashboard.
-5. Select **Export CSV** to download that calculator's history, or visit `/dashboard` for the overall summary.
-
-**Example: simple interest**
-
-Open **Simple Interest** and enter principal `1000`, rate `10`, and time `2` years. Select **Calculate**. The interest is `200` and the maturity value is `1200`. Export the history to see the stored inputs and results.
-
-## Input conventions
-
-| Input | How to enter it |
-| --- | --- |
-| Percentage or rate | Enter `25` for 25%, rather than `0.25`, unless the field specifically asks for a decimal. |
-| Probability | Enter a decimal between 0 and 1, such as `0.4` for `P(A)`. |
-| Overtime rate | Enter a multiplier: `1.5` means time-and-a-half. |
-| Statistics values and weights | Use comma-separated numbers, such as `10, 12, 15, 20`. Supply a corresponding weight for each value when using weights. |
-| Capital Budgeting cash flows | Enter future cash flows as a comma-separated list. Put the initial investment in its separate field. |
-| Insurance short-rate factor | Enter a decimal factor, such as `0.60`. |
-| Annuity and loan rates | Use the rate per payment period, with the number of periods in matching units. |
-
-Read each form's labels before submitting. Use consistent currency and time units. Calculations use the values you supply; the Taxes module does not fetch jurisdiction-specific tax rules.
-
-## Calculation history and database
-
-The database is **`app/data/amiyenDB.db`**. The repository includes a database, so existing records may appear on first launch. Each module stores history in its corresponding table. Basic Business Math and Markup/Markdown also use previous records for some change calculations.
-
-Startup creates missing tables and adds missing columns without intentionally deleting existing records. The database folder must be writable. To preserve history before changes or moving the project, stop the server and back up the database file.
-
-CSV downloads are generated from SQLite at `/export/<module>.csv`, using module codes such as `sin` for Simple Interest. The visible interface presents dashboards; hidden HTML tables supply chart data.
-
-## Running tests
-
-With the virtual environment active, run from the repository root:
-
-```bash
-cd app
-python test_all.py
-```
-
-The existing suite checks formula results and database inserts for all **24 calculator modules**. It uses a temporary SQLite database and does not modify `app/data/amiyenDB.db`. A successful run ends with:
+Open the local address shown in the terminal. With Flask's default development-server settings, this is usually:
 
 ```text
-Result: 24/24 calculator modules passed
+http://127.0.0.1:5000
 ```
 
-The command exits with a nonzero status if any module fails. These tests cover calculations and persistence; they do not replace checking the browser interface.
+To stop the local server, press `Ctrl+C` in the terminal.
 
-## Project structure
+## Usage
 
-```text
-Amiyen/
-├── README.md
-├── requirements.txt         # Contains legacy/standard-library entries; see setup
-└── app/
-    ├── app.py               # Flask routes, forms, dashboards, and CSV exports
-    ├── functions.py         # Mathematical formulas
-    ├── input.py             # Input validation helpers
-    ├── tne.py               # Calculation coordination
-    ├── database.py          # Schema initialization and database updates
-    ├── test_all.py          # Tests for all 24 calculator modules
-    ├── data/
-    │   └── amiyenDB.db      # Persistent calculation history
-    ├── templates/           # HTML templates
-    └── static/              # CSS and browser JavaScript
-```
+1. Open Amiyen in your browser.
+2. Select the calculator for the task you need.
+3. Enter the values requested by that calculator.
+4. Run the calculation and review the result and any available visual breakdown.
+5. Use the history and CSV export options to keep or reuse your work where available.
 
-## Troubleshooting
+Start with **Basic Business Math** for a general overview, or choose a specific tool such as **Break-Even Analysis**, **Loans**, or **Financial Ratios** for a more focused calculation.
 
-| Problem | What to check |
-| --- | --- |
-| `No matching distribution found for sqlite3` | Use the Flask installation command in step 4. SQLite support comes with Python. |
-| `No module named flask` | Activate the virtual environment and install Flask with that environment's `python -m pip`. |
-| Python cannot find `app.py` | Change into the repository's `app` folder before running `python app.py`. |
-| Port 5000 is already in use | From `app/`, run `python -m flask --app app run --port 5001` and use the address printed by that server. |
-| SQLite reports a read-only database | Ensure `app/data/` and its database file are writable by the account running the app. |
-| A form reports incomplete or invalid values | Check required fields, decimal versus percentage conventions, list formatting, and whether divisors are zero. |
-| PowerShell blocks virtual environment activation | Use Command Prompt activation, or run `.\.venv\Scripts\python.exe -m pip install "Flask==3.1.3"` and `.\.venv\Scripts\python.exe app\app.py` from the repository root. |
+## Screenshots
+
+The examples below show the calculator screens included in this repository's demo set. Select any image to view it at full size.
+
+<details>
+<summary>View all 24 calculator screenshots</summary>
+
+<table>
+<tr><td align="center" width="33%"><a href="docs/screenshots/basic-business-math.png"><img src="docs/screenshots/basic-business-math.png" alt="Basic Business Math calculator" width="280"></a><br><sub>Basic Business Math</sub></td><td align="center" width="33%"><a href="docs/screenshots/markup-and-markdown.png"><img src="docs/screenshots/markup-and-markdown.png" alt="Markup and Markdown calculator" width="280"></a><br><sub>Markup and Markdown</sub></td><td align="center" width="33%"><a href="docs/screenshots/discounts.png"><img src="docs/screenshots/discounts.png" alt="Discounts calculator" width="280"></a><br><sub>Discounts</sub></td></tr>
+<tr><td align="center" width="33%"><a href="docs/screenshots/profit-and-loss.png"><img src="docs/screenshots/profit-and-loss.png" alt="Profit and Loss calculator" width="280"></a><br><sub>Profit and Loss</sub></td><td align="center" width="33%"><a href="docs/screenshots/simple-interest.png"><img src="docs/screenshots/simple-interest.png" alt="Simple Interest calculator" width="280"></a><br><sub>Simple Interest</sub></td><td align="center" width="33%"><a href="docs/screenshots/compound-interest.png"><img src="docs/screenshots/compound-interest.png" alt="Compound Interest calculator" width="280"></a><br><sub>Compound Interest</sub></td></tr>
+<tr><td align="center" width="33%"><a href="docs/screenshots/annuities.png"><img src="docs/screenshots/annuities.png" alt="Annuities calculator" width="280"></a><br><sub>Annuities</sub></td><td align="center" width="33%"><a href="docs/screenshots/loans.png"><img src="docs/screenshots/loans.png" alt="Loans calculator" width="280"></a><br><sub>Loans</sub></td><td align="center" width="33%"><a href="docs/screenshots/present-and-future-value.png"><img src="docs/screenshots/present-and-future-value.png" alt="Present and Future Value calculator" width="280"></a><br><sub>Present and Future Value</sub></td></tr>
+<tr><td align="center" width="33%"><a href="docs/screenshots/depreciation.png"><img src="docs/screenshots/depreciation.png" alt="Depreciation calculator" width="280"></a><br><sub>Depreciation</sub></td><td align="center" width="33%"><a href="docs/screenshots/commission.png"><img src="docs/screenshots/commission.png" alt="Commission calculator" width="280"></a><br><sub>Commission</sub></td><td align="center" width="33%"><a href="docs/screenshots/payroll-and-wages.png"><img src="docs/screenshots/payroll-and-wages.png" alt="Payroll and Wages calculator" width="280"></a><br><sub>Payroll and Wages</sub></td></tr>
+<tr><td align="center" width="33%"><a href="docs/screenshots/taxes.png"><img src="docs/screenshots/taxes.png" alt="Taxes calculator" width="280"></a><br><sub>Taxes</sub></td><td align="center" width="33%"><a href="docs/screenshots/break-even-analysis.png"><img src="docs/screenshots/break-even-analysis.png" alt="Break-Even Analysis calculator" width="280"></a><br><sub>Break-Even Analysis</sub></td><td align="center" width="33%"><a href="docs/screenshots/business-revenue-and-cost.png"><img src="docs/screenshots/business-revenue-and-cost.png" alt="Business Revenue and Cost calculator" width="280"></a><br><sub>Business Revenue and Cost</sub></td></tr>
+<tr><td align="center" width="33%"><a href="docs/screenshots/ratios-and-proportions.png"><img src="docs/screenshots/ratios-and-proportions.png" alt="Ratios and Proportions calculator" width="280"></a><br><sub>Ratios and Proportions</sub></td><td align="center" width="33%"><a href="docs/screenshots/statistics.png"><img src="docs/screenshots/statistics.png" alt="Statistics calculator" width="280"></a><br><sub>Statistics</sub></td><td align="center" width="33%"><a href="docs/screenshots/probability.png"><img src="docs/screenshots/probability.png" alt="Probability calculator" width="280"></a><br><sub>Probability</sub></td></tr>
+<tr><td align="center" width="33%"><a href="docs/screenshots/percentage-and-rate-conversions.png"><img src="docs/screenshots/percentage-and-rate-conversions.png" alt="Percentage and Rate Conversions calculator" width="280"></a><br><sub>Percentage and Rate Conversions</sub></td><td align="center" width="33%"><a href="docs/screenshots/financial-ratios.png"><img src="docs/screenshots/financial-ratios.png" alt="Financial Ratios calculator" width="280"></a><br><sub>Financial Ratios</sub></td><td align="center" width="33%"><a href="docs/screenshots/capital-budgeting.png"><img src="docs/screenshots/capital-budgeting.png" alt="Capital Budgeting calculator" width="280"></a><br><sub>Capital Budgeting</sub></td></tr>
+<tr><td align="center" width="33%"><a href="docs/screenshots/stocks-and-bonds.png"><img src="docs/screenshots/stocks-and-bonds.png" alt="Stocks and Bonds calculator" width="280"></a><br><sub>Stocks and Bonds</sub></td><td align="center" width="33%"><a href="docs/screenshots/insurance.png"><img src="docs/screenshots/insurance.png" alt="Insurance calculator" width="280"></a><br><sub>Insurance</sub></td><td align="center" width="33%"><a href="docs/screenshots/promissory-notes.png"><img src="docs/screenshots/promissory-notes.png" alt="Promissory Notes calculator" width="280"></a><br><sub>Promissory Notes</sub></td></tr>
+</table>
+
+</details>
+
+## Configuration and data
+
+- The local application uses SQLite; a separate database service is not needed for a basic local run.
+- The default startup command is `python app.py`.
+- Review the application's settings in the source before changing its host, port, database location, or debug behavior.
+- Before deploying publicly, set a strong secret key if the application uses Flask sessions, disable debug mode, and run behind a production WSGI server. Do not expose Flask's development server to the public internet.
+
+If a future version introduces environment-based configuration, document each required variable, what it controls, its default (if any), and whether it contains a secret.
+
+## Contributing
+
+Bug reports, ideas, and pull requests are welcome. For substantial changes, open an issue first so the proposed change can be discussed. Please include clear reproduction steps for bug reports and screenshots for user-interface changes.
+
+## License
+
+This README does not assign a license. Add the project's selected license as a `LICENSE` file and replace this section with the license name and a link before inviting reuse or redistribution. If no license file is present, users should not assume permission to copy, modify, or redistribute the code.
+
+## Project
+
+- **Repository:** [Khaiyen-Salaria/Amiyen](https://github.com/Khaiyen-Salaria/Amiyen)
+- **Releases:** [Amiyen releases](https://github.com/Khaiyen-Salaria/Amiyen/releases)
+- **Status:** Beta
