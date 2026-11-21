@@ -4,6 +4,7 @@
 
 [![Project status: Beta](https://img.shields.io/badge/status-beta-orange)](https://github.com/Khaiyen-Salaria/Amiyen/releases)
 [![Built with Python](https://img.shields.io/badge/Python-Flask-blue)](https://flask.palletsprojects.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Amiyen brings practical business, finance, and quantitative calculations into one place. Instead of switching between separate tools or spreadsheets, users can choose a calculator, enter their values, and review the calculated results and visual summaries.
 
